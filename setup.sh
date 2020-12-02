@@ -9,6 +9,10 @@ apps=(
     dunst
     flameshot
     pcmanfm
+    zathura
+    spicetify
+    picom
+    vis
 )
 
 

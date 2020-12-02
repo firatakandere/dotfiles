@@ -11,6 +11,9 @@
 
 set $mod 	Mod4
 
+# Turn borders off
+for_window [class="^.*"] border pixel 0
+
 # window borders
 set $borders	3
 
@@ -24,6 +27,7 @@ set $gapsi 	15
 # locker
 set $Locker betterlockscreen -l dimblur
 
+exec --no-startup-id picom
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
@@ -101,7 +105,7 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec "rofi -combi-modi window,drun -show combi"
+bindsym $mod+d exec "rofi -modi drun,run,window,ssh -show drun -theme nord"
 
 # custom workspaces
 set $ws1 "1"
@@ -190,6 +194,9 @@ bindsym $mod+space focus mode_toggle
 
 # custom windows
 assign [class="firefox"] $ws4
+assign [class="Spotify"] $ws5
+assign [class="discord"] $ws6
+
 #for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down 24 px
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -197,12 +204,12 @@ assign [class="firefox"] $ws4
 bar {
 	strip_workspace_numbers no
 	position top
-        status_command i3blocks
+    status_command i3blocks
 	tray_output primary
 	separator_symbol " "
 	font pango:Fira Mono 10.5
 	colors {
-		background #343d46
+		background #2e3440
 		statusline #eff1f5
 		separator #323232
 		focused_workspace #a3be8c #65737e #eff1f5
@@ -212,9 +219,17 @@ bar {
 	}
 }
 
+# Color palette
+set $bgcolor    #2e3440
+set $ibgcolor   #3b4252
+set $textcolor  #eceff4
+set $itextcolor #4c566a
+set $ubgcolor   #bf616a
+
 # window colors
 # background text indicator
-client.focused              	#96b5b4 #96b5b4 #ebdbb2 #296b5b4
-client.focused_inactive     	#65737e #65737e #ebdbb2 #65737e
-client.unfocused            	#65737e #65737e #ebdbb2 #65737e
-client.urgent 			        #bf616a #bf616a #ee0000 #bf616a
+#			            border		background	text		indicator
+client.focused		    $bgcolor	$bgcolor	$textcolor	$bgcolor
+client.unfocused	    $ibgcolor	$ibgcolor	$itextcolor	$ibgcolor
+client.focused_inactive	$ibgcolor	$ibgcolor	$itextcolor	$ibgcolor
+client.urgent		    $ubgcolor	$ubgcolor	$textcolor	$ubgcolor
