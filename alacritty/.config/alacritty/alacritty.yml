@@ -31,8 +31,6 @@ colors:
     cyan: "#8FBCBB"
     white: "#ECEFF4"
 
-background_opacity: 1.0
-
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
@@ -57,7 +55,7 @@ selection:
 live_config_reload: true
 
 window.dynamic_title: true
-
+window.opacity: 1.0
 key_bindings:
   - { key: V, mods: Control|Shift, action: Paste }
   - { key: C, mods: Control|Shift, action: Copy }

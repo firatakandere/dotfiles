@@ -3,3 +3,5 @@
 	email = f.akandere@gmail.com
 [color]
 	ui = auto
+[pull]
+	rebase = false

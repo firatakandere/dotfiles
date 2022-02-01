@@ -1,0 +1,6 @@
+[submodule "dynamic-wallpaper/dynamic-wallpaper"]
+	path = dynamic-wallpaper/dynamic-wallpaper
+	url = https://github.com/adi1090x/dynamic-wallpaper.git
+[submodule "slickgreeter-pywal"]
+	path = slickgreeter-pywal
+	url = https://github.com/Paul-Houser/slickgreeter-pywal.git

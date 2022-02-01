@@ -2,7 +2,7 @@
 
 apps=(
     i3
-    i3blocks
+    polybar
     nvim
     rofi
     alacritty
@@ -13,6 +13,7 @@ apps=(
     spicetify
     picom
     vis
+    dynamic-wallpaper
 )
 
 
