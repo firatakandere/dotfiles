@@ -7,12 +7,9 @@ apps=(
     rofi
     alacritty
     dunst
-    flameshot
     pcmanfm
     zathura
     spicetify
-    picom
-    vis
     dynamic-wallpaper
 )
 
