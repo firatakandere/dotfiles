@@ -32,9 +32,10 @@ set $Locker dm-tool lock
 
 exec_always --no-startup-id pkill dunst; dunst
 exec --no-startup-id nm-applet
-exec_always --no-startup-id ~/.config/i3/dwall.sh -p -s tokyo
-exec_always --no-startup-id sleep 2; ~/.config/polybar/launch.sh --docky
+exec_always --no-startup-id ~/.config/i3/dwall.sh -s lakeside
+exec_always --no-startup-id sleep 2; ~/.config/polybar/launch.sh
 exec_always --no-startup-id python ~/.config/i3/autoname_workspaces.py
+exec_always --no-startup-id "setxkbmap -layout us,tr -option grp:alt_shift_toggle"
 
 ###################
 ## Configuration ##
@@ -204,8 +205,8 @@ bindsym $mod+o sticky toggle
 
 # custom windows
 assign [class="firefox"] workspace number 4
-assign [class="Spotify"] $ws5
-assign [class="discord"] $ws6
+assign [class="Spotify"] workspace number 5
+assign [class="discord"] workspace number 6
 
 #for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down 24 px
 
