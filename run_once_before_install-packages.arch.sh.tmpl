@@ -1,0 +1,35 @@
+{{- if eq .chezmoi.osRelease.id "arch" -}}
+
+#!/bin/bash
+
+PACKAGES=(
+  base
+  blueman
+  brightnessctl
+  chezmoi
+  cups
+  dunst
+  firefox
+  hypridle
+  hyprland
+  hyprlock
+  intel-ucode
+  kitty
+  neovim
+  papirus-icon-theme
+  pavucontrol
+  pcmanfm-qt
+  python-pywal
+  qt5ct
+  qt6ct
+  rofi-wayland
+  ttf-meslo-nerd
+  waybar
+  xarchiver
+  xf86-video-amdgpu
+  zsh-completions
+)
+
+yay -S ${PACKAGES[@]} --needed
+
+{{ end -}}
