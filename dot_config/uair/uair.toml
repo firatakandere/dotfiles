@@ -1,0 +1,18 @@
+[defaults]
+format = "{time}\n"
+paused_state_text = "paused"
+resumed_state_test = "resumed"
+
+[[sessions]]
+id = "focus"
+name = "Focus"
+duration = "25m"
+time_format = "%M:%S"
+command = "notify-send 'Focus Done!'"
+
+[[sessions]]
+id = "rest"
+name = "Rest"
+duration = "5m"
+time_format = "%M:%S"
+comamnd = "notify-send 'Rest Done!'"
