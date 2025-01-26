@@ -1,0 +1,17 @@
+{{- $name := promptStringOnce . "name" "Name" -}}
+{{- $email := promptStringOnce . "email" "Email address" -}}
+
+data:
+  name: {{ $name }}
+  email: {{ $email }}
+
+  defaultFont: MesloLGS Nerd Font
+  monoFont: MesloLGS Nerd Font Mono
+  icons: Dracula
+
+edit:
+  command: nvim
+
+merge:
+  command: nvim
+  args: ["-d", "{{ `{{` }} .Source }}", "{{ `{{` }} .Destination }}", "{{ `{{` }} .Target }}"]
