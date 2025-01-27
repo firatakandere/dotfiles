@@ -1,0 +1,180 @@
+{
+  "group/quicklinks": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/filemanager",
+      "custom/browser",
+      "custom/terminal",
+    ]
+  },
+
+  "custom/filemanager": {
+    "format": "",
+    "on-click": "pcmanfm",
+    "tooltip": false
+  },
+
+  "custom/browser": {
+    "format": "",
+    "on-click": "firefox",
+    "tooltip": false
+  },
+
+  "custom/terminal": {
+    "format": "",
+    "on-click": "kitty",
+    "tooptip": false
+  },
+
+  "hyprland/workspaces": {
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "all-outputs": true,
+    "active-only": false,
+    "on-click": "activate",
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": {},
+    "icon-theme": "{{ .icons }}",
+    "spacing": 0,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "on-click-right": "fullscreen"
+  },
+
+  "group/misc": {
+    "orientation": "inherit",
+    "modules": [
+      "custom/timer",
+    ]
+  },
+
+  "group/devices": {
+    "orientation": "horizontal",
+    "modules": [
+      "pulseaudio",
+      "bluetooth",
+      "network",
+      "battery"
+    ]
+  },
+
+  "group/system": {
+    "orientation": "horizontal",
+    "modules": [
+      "hyprland/language",
+      "custom/updates",
+      "custom/power"
+    ]
+  },
+
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "US",
+    "format-tr": "TR",
+    "format-ee": "EE"
+  },
+
+  "tray": {
+    "icon-size": {},
+    "spacing": 5
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-full": "  {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "custom/updates": {
+    "format": " {}",
+    "exec": "checkupdates | wc -l",
+    "restart-interval": 60,
+    "tooltip": false
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "tooltip-format": "{icon} {desc}",
+    "format-icons": {
+      "headphone": ["", "", ""],
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    }
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "",
+    "format-connected": " {num_connections}",
+    "on-click": "blueman-manager",
+    "on-click-right": "blueman-manager",
+    "tooltip-format": " {device_alias}",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": " {device_alias}"
+  },
+
+  "network": {
+    "format-wifi": "󰤨 {signalStrength}%",
+    "format-ethernet": "󱘖 Wired",
+    "tooltip-format": "󱘖 {ipaddr}  {bandwidthUpBytes}   {bandwidthDownBytes}",
+    "format-linked": "󱘖 {ifname} (No IP)",
+    "format-disconnected": " Disconnected",
+    "format-alt": "󰤨 {essid}",
+    "on-click": "kitty --class nmtui -e nmtui",
+    "interval": 5
+  },
+
+  "custom/power": {
+    "format": "",
+  },
+
+  "clock": {
+    "format": "{:%R}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "on-scroll": 1
+    }
+  },
+
+  "custom/timer" : {
+    "format": "{}",
+    "tooltip": false,
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "uairctl toggle",
+    "on-click-middle": "uairctl prev",
+    "on-click-right": "uairctl next",
+    "exec": "uairctl fetch '{\"text\":\"{name} {time}\",\"class\":\"{state}\",\"percentage\":{percent}}'"
+  },
+
+  "custom/appmenu": {
+    "format": "󰣇",
+    "on-click": "~/.config/hypr/scripts/show_menu.sh",
+    "tooltip": false
+  }
+}
